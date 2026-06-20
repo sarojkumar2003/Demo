@@ -13,10 +13,10 @@ export const Contact = () => {
             <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
                 <span className="text-indigo-400 font-bold tracking-wider uppercase text-sm mb-4 block">Get in Touch</span>
                 <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-                    Let's Build <br className="hidden md:block" /> Something <span className="text-indigo-500">Iconic.</span>
+                    Let's Plan <br className="hidden md:block" /> Your Next <span className="text-indigo-500">Project.</span>
                 </h2>
                 <p className="text-slate-400 text-lg mb-16 max-w-2xl mx-auto leading-relaxed">
-                    Have a project in mind? We'd love to hear about it. Reach out to discuss how we can turn your architectural vision into reality.
+                    Reach City Architects & Planning in New Delhi for architecture, planning, interiors, engineering, and project-management consultancy.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -25,7 +25,7 @@ export const Contact = () => {
                             <MapPin size={28} />
                         </div>
                         <h4 className="text-xl font-bold mb-2">Visit Us</h4>
-                        <p className="text-slate-400 leading-relaxed">123 Design Avenue<br />New York, NY 10012</p>
+                        <p className="text-slate-400 leading-relaxed">H. No. 25/A, Ground Floor<br />G. No. 9, Gagan Vihar, Mithapur<br />Badarpur, New Delhi - 110044</p>
                     </div>
 
                     <div className="bg-white/5 p-8 rounded-3xl backdrop-blur-sm hover:bg-white/10 transition-colors group cursor-pointer border border-white/5 hover:border-indigo-500/30">
@@ -33,7 +33,7 @@ export const Contact = () => {
                             <Mail size={28} />
                         </div>
                         <h4 className="text-xl font-bold mb-2">Email Us</h4>
-                        <p className="text-slate-400 leading-relaxed">hello@havenx.studio<br />careers@havenx.studio</p>
+                        <p className="text-slate-400 leading-relaxed">sharmaraushan685@gmail.com<br /></p>
                     </div>
 
                     <div className="bg-white/5 p-8 rounded-3xl backdrop-blur-sm hover:bg-white/10 transition-colors group cursor-pointer border border-white/5 hover:border-indigo-500/30">
@@ -41,7 +41,7 @@ export const Contact = () => {
                             <Phone size={28} />
                         </div>
                         <h4 className="text-xl font-bold mb-2">Call Us</h4>
-                        <p className="text-slate-400 leading-relaxed">+1 (555) 123-4567<br />Mon-Fri, 9am - 6pm EST</p>
+                        <p className="text-slate-400 leading-relaxed">+91-9818381406<br />+91-9540666691</p>
                     </div>
                 </div>
             </div>

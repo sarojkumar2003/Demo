@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react';
 import { motion } from 'framer-motion';
+import featureImg from '../../assets/Images/8.png';
 
 const features = [
     "Sustainable & Eco-friendly Designs",
@@ -23,7 +24,7 @@ export const Features = () => {
                     >
                         <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200">
                             <img
-                                src="/feature-house-v2.png"
+                                src={featureImg}
                                 alt="Modern home exterior with car"
                                 className="w-full h-full object-cover"
                             />
@@ -36,8 +37,8 @@ export const Features = () => {
                     <div className="order-1 lg:order-2">
                         <span className="text-indigo-600 font-medium tracking-wide uppercase text-sm">Why Choose Us</span>
                         <h2 className="mt-3 text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                            Designing for the <br />
-                            Future of Living
+                            Crafting <br />
+                            Visionary Spaces
                         </h2>
 
                         <div className="space-y-4">

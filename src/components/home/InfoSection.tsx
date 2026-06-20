@@ -1,4 +1,5 @@
 import { Button } from '../ui/Button';
+import infoImg from '../../assets/Images/12.jpg';
 
 export const InfoSection = () => {
     return (
@@ -21,7 +22,7 @@ export const InfoSection = () => {
                         {/* Placeholder for the image seen in bottom right of design - using a gradient/placeholder for now as no asset was provided for this specifically, or we can reuse one */}
                         <div className="absolute inset-0 bg-slate-100 flex items-center justify-center">
                             <img
-                                src="/hero-house-villa.png"
+                                src={infoImg}
                                 alt="Real Estate Meeting"
                                 className="w-full h-full object-cover"
                             />

@@ -30,12 +30,12 @@ export const FounderStory = ({ isOpen, onClose }: { isOpen: boolean; onClose: ()
                         <div className="md:w-5/12 h-64 md:h-full relative overflow-hidden bg-slate-100">
                             <img
                                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
-                                alt="Alexander Haven - Founder"
+                                alt="R.K. Sharma - Principal Architect"
                                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 font-sans"
                             />
                             <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-slate-900/80 to-transparent text-white">
-                                <h3 className="text-3xl font-bold">Alexander Haven</h3>
-                                <p className="text-indigo-300 font-medium">Principal Architect & Founder</p>
+                                <h3 className="text-3xl font-bold">R.K. Sharma</h3>
+                                <p className="text-indigo-300 font-medium">Principal Architect</p>
                             </div>
                         </div>
 
@@ -50,16 +50,16 @@ export const FounderStory = ({ isOpen, onClose }: { isOpen: boolean; onClose: ()
                                     <Quote size={28} />
                                 </div>
                                 <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">
-                                    Building the <span className="text-indigo-600">Future</span> <br />
-                                    Legacy of Design.
+                                    Practical Design with <span className="text-indigo-600">Purpose</span> <br />
+                                    and Precision.
                                 </h2>
 
                                 <div className="space-y-6 text-slate-600 text-lg leading-relaxed mb-12">
                                     <p>
-                                        My journey began with a simple sketch and a profound belief: that the spaces we inhabit define the lives we lead. For two decades, I've dedicated my craft to merging sculptural art with functional precision.
+                                        R.K. Sharma, principal architect of City Architects & Planning, has been a forerunner in residential and commercial design.
                                     </p>
                                     <p>
-                                        Architecture isn't just about steel and concrete; it's about the light that hits a wall at dawn, the way a corridor breathes, and the silent conversation between a structure and its environment.
+                                        The practice brings together programming, design development, site planning, environmental design, facility planning, interdisciplinary coordination, budgeting, staffing, scheduling, and construction-contract administration.
                                     </p>
                                 </div>
 
@@ -70,7 +70,7 @@ export const FounderStory = ({ isOpen, onClose }: { isOpen: boolean; onClose: ()
                                         </div>
                                         <div>
                                             <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Founded</p>
-                                            <p className="text-slate-900 font-bold">2009 in NY</p>
+                                            <p className="text-slate-900 font-bold">2019 in New Delhi</p>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4">
@@ -79,7 +79,7 @@ export const FounderStory = ({ isOpen, onClose }: { isOpen: boolean; onClose: ()
                                         </div>
                                         <div>
                                             <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Recognition</p>
-                                            <p className="text-slate-900 font-bold">Pritzker Nominee</p>
+                                            <p className="text-slate-900 font-bold">Council of Architecture</p>
                                         </div>
                                     </div>
                                 </div>

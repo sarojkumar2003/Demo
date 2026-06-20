@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Rocket, Search } from 'lucide-react';
+import { Building2, Menu, Search, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { cn } from '../../utils/utils';
 
 const navLinks = [
     { name: 'About', href: '#about' },
+    { name: 'Process', href: '#process' },
     { name: 'Services', href: '#services' },
     { name: 'Projects', href: '#projects' },
 ];
@@ -27,7 +28,7 @@ export const Header = () => {
         <header
             className={cn(
                 'fixed top-0 inset-x-0 z-50 transition-all duration-300',
-                scrolled ? 'glass py-3' : 'bg-transparent py-5'
+                scrolled ? 'backdrop-blur-sm py-3' : 'bg-transparent py-5'
             )}
         >
             <div className="container mx-auto px-4 md:px-6">
@@ -35,9 +36,9 @@ export const Header = () => {
                     {/* Logo */}
                     <div className="flex items-center gap-2 relative z-50">
                         <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-600/20">
-                            <Rocket size={20} fill="currentColor" className="text-white" />
+                            <Building2 size={20} className="text-white" />
                         </div>
-                        <span className="font-bold text-xl text-slate-900 tracking-tight">Havenx</span>
+                        <span className="font-bold text-xl text-slate-900 tracking-tight">CAP</span>
                     </div>
 
                     {/* Desktop Search Overlay */}
@@ -73,7 +74,7 @@ export const Header = () => {
                                     <div className="mt-8">
                                         <p className="text-sm font-medium text-slate-400 uppercase tracking-wider mb-4">Suggested Searches</p>
                                         <div className="flex flex-wrap gap-3">
-                                            {['Modern Villas', 'Sustainable Design', 'Urban Planning', 'Interior Renovation', 'Commercial Complexes', 'Landscape Architecture'].map((term) => (
+                                            {['Architecture', 'Interior Design', 'Town Planning', 'Structural Engineering', 'Project Management', 'Commercial Projects'].map((term) => (
                                                 <button
                                                     key={term}
                                                     className="px-5 py-2.5 rounded-full bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors text-sm font-medium"
@@ -87,7 +88,7 @@ export const Header = () => {
                             </motion.div>
                         ) : (
                             <nav className="hidden md:flex items-center gap-8">
-                                {['About', 'Services', 'Projects'].map((item) => (
+                                {['About', 'Process', 'Services', 'Projects'].map((item) => (
                                     <a
                                         key={item}
                                         href={`#${item.toLowerCase().replace(' ', '-')}`}

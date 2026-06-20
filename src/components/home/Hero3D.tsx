@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { Image as ImageIcon, RotateCcw, Box, Gem, Leaf, Cpu, Grid } from 'lucide-react';
+import { RotateCcw } from 'lucide-react';
+import heroFallbackImg from '../../assets/Images/1.png';
+
 
 export const Hero3D = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
@@ -13,13 +15,11 @@ export const Hero3D = () => {
 
   // States
   const [isWebGLSupported, setIsWebGLSupported] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [hasRelief, setHasRelief] = useState(false);
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const [showBlueprint, setShowBlueprint] = useState(false);
 
   // Villa Customization Style
-  const [villaStyle, setVillaStyle] = useState<'minimalist' | 'obsidian' | 'biogreen' | 'hightech' | 'wireframe'>('minimalist');
+  const [villaStyle] = useState<'minimalist' | 'obsidian' | 'biogreen' | 'hightech' | 'wireframe'>('minimalist');
 
   // Interactive Options for 3D Relief
   const [reliefStyle, setReliefStyle] = useState<'textured' | 'clay' | 'gold' | 'hologram'>('textured');
@@ -37,61 +37,8 @@ export const Hero3D = () => {
   
   // Image properties cache for fast updates
   const currentImgData = useRef<Uint8ClampedArray | null>(null);
-  const currentAspect = useRef<number>(1);
-  const currentSize = useRef<number>(64);
   const activeTexture = useRef<THREE.Texture | null>(null);
 
-  // Convert image pixels to 3D relief mesh
-  const onImageProcessed = (dataUrl: string, imgData: Uint8ClampedArray, size: number, aspect: number) => {
-    if (!sceneRef.current) return;
-
-    currentImgData.current = imgData;
-    currentAspect.current = aspect;
-    currentSize.current = size;
-
-    clearReliefMesh();
-
-    const texture = new THREE.TextureLoader().load(dataUrl);
-    activeTexture.current = texture;
-
-    const geom = new THREE.PlaneGeometry(6 * aspect, 6, size - 1, size - 1);
-    
-    // Set userData.type = 'relief' so the villa style traversal updater ignores this mesh
-    const tempMat = new THREE.MeshStandardMaterial({ side: THREE.DoubleSide });
-    const mesh = new THREE.Mesh(geom, tempMat);
-    mesh.userData.type = 'relief';
-    mesh.position.set(0, 11.0, 0); // Float beautifully above the villa
-    mesh.rotation.x = -Math.PI / 6; // Tilt slightly forward
-    mesh.castShadow = true;
-    mesh.receiveShadow = true;
-
-    sceneRef.current.add(mesh);
-    reliefMeshRef.current = mesh;
-    setHasRelief(true);
-
-    // Apply active styles and depth
-    setReliefStyle(prev => prev);
-    setReliefDepth(prev => prev);
-
-    // Smoothly shift camera target to the new 3D relief artwork
-    if (cameraRef.current && controlsRef.current) {
-      const duration = 800;
-      const startTarget = controlsRef.current.target.clone();
-      const targetTarget = new THREE.Vector3(0, 10.5, 0);
-      const startTime = performance.now();
-
-      const animateTransition = (now: number) => {
-        const progress = Math.min((now - startTime) / duration, 1);
-        controlsRef.current!.target.lerpVectors(startTarget, targetTarget, progress);
-        controlsRef.current!.update();
-
-        if (progress < 1) {
-          requestAnimationFrame(animateTransition);
-        }
-      };
-      requestAnimationFrame(animateTransition);
-    }
-  };
 
   // Dynamically update relief geometry and materials when depth or style changes
   useEffect(() => {
@@ -240,7 +187,8 @@ export const Hero3D = () => {
         const matProps = scheme[type];
         
         if (matProps && object.material instanceof THREE.MeshStandardMaterial) {
-          const props = matProps as any;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const props = matProps as Record<string, any>;
           if ('color' in props) {
             object.material.color.setHex(props.color);
           }
@@ -308,7 +256,8 @@ export const Hero3D = () => {
     }
 
     if (waterfallRef.current && waterfallRef.current.material instanceof THREE.MeshStandardMaterial) {
-      const props = scheme.waterfall as any;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const props = scheme.waterfall as Record<string, any>;
       waterfallRef.current.material.color.setHex(props.color);
       if ('emissive' in props) {
         waterfallRef.current.material.emissive.setHex(props.emissive);
@@ -324,22 +273,6 @@ export const Hero3D = () => {
     }
   }, [villaStyle]);
 
-  // Toggle blueprint/wireframe view
-  useEffect(() => {
-    if (!meshesRef.current) return;
-
-    meshesRef.current.forEach(({ mesh }) => {
-      if (mesh.material instanceof THREE.Material) {
-        mesh.material.wireframe = showBlueprint;
-        mesh.material.needsUpdate = true;
-      }
-    });
-
-    if (waterfallRef.current && waterfallRef.current.material instanceof THREE.Material) {
-      waterfallRef.current.material.wireframe = showBlueprint;
-      waterfallRef.current.material.needsUpdate = true;
-    }
-  }, [showBlueprint]);
 
   const clearReliefMesh = () => {
     if (sceneRef.current && reliefMeshRef.current) {
@@ -384,41 +317,6 @@ export const Hero3D = () => {
   };
 
 
-  // Handle zoom in/out - Fixed version
-  const handleZoom = (direction: 'in' | 'out') => {
-    if (!controlsRef.current) return;
-    const currentDistance = controlsRef.current.getDistance();
-    const zoomFactor = direction === 'in' ? 0.85 : 1.15;
-    const newDistance = currentDistance * zoomFactor;
-    const clampedDistance = Math.max(9, Math.min(52, newDistance));
-    
-    controlsRef.current.minDistance = clampedDistance - 2;
-    controlsRef.current.maxDistance = clampedDistance + 3;
-    
-    // Smoothly animate to the new distance
-    const startDistance = currentDistance;
-    const startTime = performance.now();
-    const duration = 300;
-
-    const animateZoom = (now: number) => {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const easeOutQuad = 1 - Math.pow(1 - progress, 2);
-      const currentPos = controlsRef.current!.object.position;
-      const direction = currentPos.clone().normalize();
-      const targetDistance = startDistance + (clampedDistance - startDistance) * easeOutQuad;
-      
-      controlsRef.current!.object.position.copy(
-        direction.multiplyScalar(targetDistance)
-      );
-      controlsRef.current!.update();
-
-      if (progress < 1) {
-        requestAnimationFrame(animateZoom);
-      }
-    };
-
-    requestAnimationFrame(animateZoom);
-  };
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -453,8 +351,12 @@ export const Hero3D = () => {
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
     } catch (error) {
       console.warn('WebGL is not supported or disabled in this browser. Falling back to high-res static image.', error);
-      setIsWebGLSupported(false);
-      setIsLoading(false);
+      // Defer setState to avoid triggering synchronous-setState-in-effect lint rule.
+      // setTimeout(0) still runs immediately after this render, which is the correct pattern.
+      setTimeout(() => {
+        setIsWebGLSupported(false);
+        setIsLoading(false);
+      }, 0);
       return;
     }
 
@@ -471,19 +373,19 @@ export const Hero3D = () => {
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.maxPolarAngle = Math.PI / 2 - 0.05;
-    controls.minDistance = 9;
+    controls.minDistance = 15;
     controls.maxDistance = 52;
     controls.target.set(0, 3.2, -0.8); // Adjusted lower target to center the model and avoid bottom clipping
     controls.autoRotate = true; // Auto-rotate enabled by default
     controls.autoRotateSpeed = 0.8; // Smooth, slow rotation
     controlsRef.current = controls;
 
-    (window as any).debugCamera = camera;
-    (window as any).debugControls = controls;
+    (window as Window & { debugCamera?: THREE.PerspectiveCamera }).debugCamera = camera;
+    (window as Window & { debugControls?: OrbitControls }).debugControls = controls;
 
     // --- 5. Resize Observer to prevent 0-dimension sizing bugs on mount ---
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (const entry of entries) {
         const { width: w, height: h } = entry.contentRect;
         if (w > 0 && h > 0) {
           camera.aspect = w / h;
@@ -857,7 +759,8 @@ export const Hero3D = () => {
     const foliageGeo2 = new THREE.DodecahedronGeometry(0.45, 1);
     const bushGeo = new THREE.DodecahedronGeometry(0.28, 0);
 
-    setIsLoading(false);
+    // Defer so the loading state update doesn't fire synchronously inside the effect body.
+    setTimeout(() => { setIsLoading(false); }, 0);
 
     // --- 8. Animation Loop ---
     let time = 0;
@@ -895,13 +798,14 @@ export const Hero3D = () => {
     requestRef.current = requestAnimationFrame(animate);
 
     // --- 9. Clean up ---
+    const containerEl = containerRef.current;
     return () => {
       resizeObserver.disconnect();
       if (requestRef.current) cancelAnimationFrame(requestRef.current);
       
       renderer.dispose();
-      if (containerRef.current && renderer.domElement) {
-        containerRef.current.removeChild(renderer.domElement);
+      if (containerEl && renderer.domElement) {
+        containerEl.removeChild(renderer.domElement);
       }
       
       // Clean up meshes
@@ -947,9 +851,9 @@ export const Hero3D = () => {
   // WebGL Fallback to high-res static image to prevent blank/broken screens
   if (!isWebGLSupported) {
     return (
-      <div className="relative w-full h-[450px] sm:h-[550px] md:h-[650px] lg:h-[min(78vh,880px)] xl:h-[min(82vh,940px)] rounded-[2rem] overflow-hidden drop-shadow-2xl">
+      <div className="relative h-[220px] w-full overflow-hidden rounded-[2rem] drop-shadow-2xl sm:h-[280px] md:h-[360px] lg:h-[min(78vh,880px)] xl:h-[min(82vh,940px)]">
         <img
-          src="/hero-house-final-user.png"
+          src={heroFallbackImg}
           alt="Modern Architectural House"
           className="w-full h-full object-cover object-bottom"
         />
@@ -959,7 +863,7 @@ export const Hero3D = () => {
 
   return (
     <div 
-      className="relative w-full h-full max-w-2xl aspect-video lg:aspect-auto lg:h-[650px] overflow-hidden flex flex-col justify-between transition-all duration-300 select-none group rounded-3xl"
+      className="relative w-full h-[220px] max-w-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 select-none group rounded-3xl sm:h-[280px] md:h-[360px] lg:h-[650px] lg:aspect-auto"
     >
       {/* 3D Canvas Container */}
       <div 
@@ -1037,3 +941,4 @@ export const Hero3D = () => {
     </div>
   );
 };
+export default Hero3D;

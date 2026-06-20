@@ -1,30 +1,54 @@
-import { Home, Building2, PaintBucket, TreePine } from 'lucide-react';
+import { Building2, DraftingCompass, Flame, PaintBucket, Ruler, Snowflake, Wrench, Zap } from 'lucide-react';
 import { Card } from '../ui/Card';
 
 const services = [
     {
-        icon: Home,
-        title: "Residential Architecture",
-        description: "Bespoke home designs that reflect your personality and lifestyle. From modern villas to sustainable cottages, we create sanctuaries.",
+        icon: DraftingCompass,
+        title: "Architecture & Urban Design",
+        description: "Conceptual design, design development, site planning, facility planning, graphics, and data-driven design for built environments.",
         color: "bg-blue-100 text-blue-600"
     },
     {
         icon: Building2,
-        title: "Commercial Design",
-        description: "Innovative office spaces, retail environments, and hospitality structures designed to enhance productivity and brand presence.",
+        title: "Town Planning",
+        description: "Context-led planning and zoning support for residential, commercial, institutional, industrial, and infrastructure projects.",
         color: "bg-indigo-100 text-indigo-600"
     },
     {
         icon: PaintBucket,
         title: "Interior Design",
-        description: "Curating harmonious interiors with a focus on materials, lighting, and spatial flow to create cohesive living and working environments.",
+        description: "Space planning, furniture schedules, signage, wayfinding, art direction, and tailored interiors that balance style with function.",
         color: "bg-purple-100 text-purple-600"
     },
     {
-        icon: TreePine,
-        title: "Landscape Architecture",
-        description: "Integrating built environments with nature. We design sustainable landscapes that complement our architectural structures.",
+        icon: Wrench,
+        title: "Structural & Civil Engineering",
+        description: "Technical coordination, code analysis, construction support, and practical engineering inputs from concept through delivery.",
         color: "bg-emerald-100 text-emerald-600"
+    },
+    {
+        icon: Zap,
+        title: "Electrical Services",
+        description: "Electrical planning and service coordination integrated with architectural and interior design requirements.",
+        color: "bg-amber-100 text-amber-600"
+    },
+    {
+        icon: Snowflake,
+        title: "Air-conditioning & FDV",
+        description: "Air-conditioning, FDV, plumbing, and sanitary systems coordinated with the wider project design.",
+        color: "bg-cyan-100 text-cyan-600"
+    },
+    {
+        icon: Flame,
+        title: "Fire Fighting Systems",
+        description: "Fire-safety service planning and coordination aligned with applicable codes, building use, and project constraints.",
+        color: "bg-rose-100 text-rose-600"
+    },
+    {
+        icon: Ruler,
+        title: "Estimating & Project Management",
+        description: "Quantity surveying, estimating, budgeting, scheduling, bidding, negotiation, and construction administration.",
+        color: "bg-slate-100 text-slate-600"
     }
 ];
 
@@ -35,10 +59,10 @@ export const Services = () => {
                 <div className="text-center max-w-2xl mx-auto mb-16">
                     <span className="text-indigo-600 font-bold tracking-wider uppercase text-sm">What We Offer</span>
                     <h2 className="mt-3 text-3xl md:text-5xl font-bold text-slate-900">
-                        Our Architectural Services
+                        CAP Services
                     </h2>
                     <p className="mt-4 text-slate-600 text-lg">
-                        Comprehensive design solutions tailored to every scale and sector.
+                        Integrated consultancy across architecture, interiors, planning, engineering, services, and project delivery.
                     </p>
                 </div>
 

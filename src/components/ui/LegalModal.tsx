@@ -12,16 +12,18 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
         switch (type) {
             case 'terms':
                 return {
-                    title: 'Terms of Service',
+                    title: 'Terms & Conditions',
                     icon: <FileText className="text-indigo-600" />,
                     content: (
                         <div className="space-y-4 text-slate-600">
-                            <p className="font-bold text-slate-900">1. Acceptance of Terms</p>
-                            <p>By accessing and using the Havenx website, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
-                            <p className="font-bold text-slate-900">2. Use License</p>
-                            <p>Permission is granted to temporarily download one copy of the materials on Havenx's website for personal, non-commercial transitory viewing only.</p>
-                            <p className="font-bold text-slate-900">3. Disclaimer</p>
-                            <p>The materials on Havenx's website are provided on an 'as is' basis. Havenx makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties.</p>
+                            <p className="font-bold text-slate-900">1. Website Use</p>
+                            <p>By using the City Architects & Planning website, you agree to use the information on this site for lawful, personal, and project-enquiry purposes only.</p>
+                            <p className="font-bold text-slate-900">2. Project Information</p>
+                            <p>Service descriptions, portfolio details, images, and project information are provided for general reference. Final scope, fees, timelines, deliverables, and responsibilities are confirmed only through a written agreement or proposal.</p>
+                            <p className="font-bold text-slate-900">3. Intellectual Property</p>
+                            <p>All website content, including text, layouts, project descriptions, drawings, design material, photographs, and graphics, belongs to City Architects & Planning or its respective rights holders. It may not be copied, reused, or distributed without permission.</p>
+                            <p className="font-bold text-slate-900">4. Limitation of Liability</p>
+                            <p>The website is maintained with care, but City Architects & Planning does not guarantee that all information is always complete, current, or error-free. The firm is not liable for decisions made solely from website content without direct consultation.</p>
                         </div>
                     )
                 };
@@ -32,11 +34,13 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
                     content: (
                         <div className="space-y-4 text-slate-600">
                             <p className="font-bold text-slate-900">1. Information Collection</p>
-                            <p>We collect information you provide directly to us, such as when you create an account, subscribe to our newsletter, or contact us for support.</p>
+                            <p>City Architects & Planning may collect details you voluntarily provide through phone, email, enquiry forms, or direct project communication, such as your name, contact details, project location, requirements, and related documents.</p>
                             <p className="font-bold text-slate-900">2. Use of Information</p>
-                            <p>We use the information we collect to provide, maintain, and improve our services, and to communicate with you about your account or our services.</p>
+                            <p>We use this information to respond to enquiries, understand project requirements, prepare proposals, coordinate services, maintain client communication, and improve our website and consultancy process.</p>
                             <p className="font-bold text-slate-900">3. Data Security</p>
-                            <p>We implement a variety of security measures to maintain the safety of your personal information when you enter, submit, or access your personal information.</p>
+                            <p>We take reasonable steps to protect personal and project information from unauthorized access, misuse, or disclosure. However, no online or electronic communication method can be guaranteed as completely secure.</p>
+                            <p className="font-bold text-slate-900">4. Sharing of Information</p>
+                            <p>Information may be shared with consultants, vendors, engineers, or project partners only when required for enquiry handling, proposal preparation, or project execution. We do not sell personal information.</p>
                         </div>
                     )
                 };
@@ -47,11 +51,13 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
                     content: (
                         <div className="space-y-4 text-slate-600">
                             <p className="font-bold text-slate-900">1. What are Cookies?</p>
-                            <p>Cookies are small text files that are stored on your computer or mobile device when you visit a website. They help us make your experience better.</p>
+                            <p>Cookies are small text files stored by your browser when you visit a website. They help the site remember basic preferences and understand general usage.</p>
                             <p className="font-bold text-slate-900">2. How We Use Cookies</p>
-                            <p>We use cookies to understand how you use our site and to remember your preferences. This helps us provide a more personalized experience.</p>
+                            <p>The City Architects & Planning website may use essential cookies for site functionality and analytics cookies to understand page performance, visitor flow, and content usefulness.</p>
                             <p className="font-bold text-slate-900">3. Managing Cookies</p>
-                            <p>You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies through your browser settings.</p>
+                            <p>You can block, delete, or manage cookies through your browser settings. Some parts of the website may not work as smoothly if essential cookies are disabled.</p>
+                            <p className="font-bold text-slate-900">4. Third-party Services</p>
+                            <p>If analytics, maps, embedded media, or external links are used, those services may set their own cookies according to their respective policies.</p>
                         </div>
                     )
                 };

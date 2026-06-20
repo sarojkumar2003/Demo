@@ -14,31 +14,31 @@ interface TeamMember {
 
 const teamData: TeamMember = {
     id: '1',
-    name: 'Alexander Haven',
-    role: 'Principal Architect & Founder',
-    email: 'alex@havenx.studio',
-    focus: 'Vision & Strategy',
+    name: 'R.K. Sharma',
+    role: 'Principal Architect',
+    email: 'info@cityarchitectsplanning.in',
+    focus: 'Design Leadership',
     children: [
         {
             id: '2',
-            name: 'Sarah Chen',
-            role: 'Design Director',
-            email: 'sarah@havenx.studio',
-            focus: 'Concept & Interiors',
+            name: 'Architecture Studio',
+            role: 'Design & Planning Team',
+            email: 'architecture@cityarchitectsplanning.in',
+            focus: 'Concept & Planning',
             children: [
-                { id: '4', name: 'Marcus Bell', role: 'Senior Architect', email: 'marcus@havenx.studio', focus: 'Residential Design' },
-                { id: '5', name: 'Elena Rossi', role: 'Interior Lead', email: 'elena@havenx.studio', focus: 'Material Direction' }
+                { id: '4', name: 'Residential & Commercial', role: 'Architecture Projects', email: 'projects@cityarchitectsplanning.in', focus: 'Built Form' },
+                { id: '5', name: 'Interior Design Division', role: 'Space Planning & Finishes', email: 'interiors@cityarchitectsplanning.in', focus: 'Experience' }
             ]
         },
         {
             id: '3',
-            name: 'David Miller',
-            role: 'Technical Director',
-            email: 'david@havenx.studio',
-            focus: 'Delivery & Systems',
+            name: 'Technical Services',
+            role: 'Engineering & Delivery Team',
+            email: 'technical@cityarchitectsplanning.in',
+            focus: 'Systems',
             children: [
-                { id: '6', name: 'James Wilson', role: 'Structural Engineer', email: 'james@havenx.studio', focus: 'Structural Logic' },
-                { id: '7', name: 'Sophie Laurent', role: 'Sustainability Expert', email: 'sophie@havenx.studio', focus: 'Green Standards' }
+                { id: '6', name: 'Structural & Civil', role: 'Engineering Coordination', email: 'structure@cityarchitectsplanning.in', focus: 'Technical' },
+                { id: '7', name: 'MEP & Project Management', role: 'Services, Estimating & Scheduling', email: 'pm@cityarchitectsplanning.in', focus: 'Delivery' }
             ]
         }
     ]
@@ -177,53 +177,53 @@ export const TeamTree = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-xl flex items-center justify-center p-4 md:p-8"
+                    className="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-xl flex items-center justify-center p-3 md:p-6"
                     onClick={onClose}
                 >
                     <motion.div
                         initial={{ scale: 0.9, y: 20 }}
                         animate={{ scale: 1, y: 0 }}
                         exit={{ scale: 0.9, y: 20 }}
-                        className="relative flex h-[90vh] w-full max-w-7xl flex-col overflow-hidden rounded-[3rem] border border-white/20 bg-white shadow-2xl"
+                        className="relative flex max-h-[calc(100vh-1.5rem)] w-full max-w-7xl flex-col overflow-hidden rounded-[2rem] border border-white/20 bg-white shadow-2xl md:max-h-[calc(100vh-3rem)] md:rounded-[3rem]"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Header Section - Always Visible */}
-                        <div className="relative border-b border-slate-100 bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 px-8 pb-8 pt-10 text-white md:px-12 md:pb-10 md:pt-12">
+                        {/* Header Section */}
+                        <div className="relative shrink-0 border-b border-slate-100 bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 px-6 pb-5 pt-7 text-white md:px-10 md:pb-7 md:pt-8">
                             <button
                                 onClick={onClose}
-                                className="absolute right-6 top-6 z-50 rounded-full border border-white/20 bg-white p-3 text-slate-900 shadow-2xl shadow-black/30 transition-colors hover:bg-slate-100 md:right-10 md:top-10"
+                                className="absolute right-5 top-5 z-50 rounded-full border border-white/20 bg-white p-3 text-slate-900 shadow-2xl shadow-black/30 transition-colors hover:bg-slate-100 md:right-8 md:top-8"
                             >
                                 <X size={24} />
                             </button>
 
                             <div className="max-w-3xl">
-                                <span className="mb-4 block text-sm font-bold uppercase tracking-wider text-sky-200">Organizational Structure</span>
-                                <h2 className="text-4xl font-bold tracking-tight md:text-6xl">Our Design Leadership</h2>
-                                <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300 md:text-lg">
-                                    A clear view of the studio leads, creative direction, and technical specialists behind each project.
+                                <span className="mb-3 block text-xs font-bold uppercase tracking-wider text-sky-200 md:text-sm">Organizational Structure</span>
+                                <h2 className="pr-16 text-3xl font-bold tracking-tight md:text-5xl">Our Integrated Team</h2>
+                                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300 md:text-base">
+                                    Research, design, architecture, structure, services, sustainability, and project management work together under one roof.
                                 </p>
                             </div>
 
-                            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                                <div className="rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur">
-                                    <p className="text-2xl font-bold">07</p>
-                                    <p className="text-sm text-slate-300">Core leaders</p>
+                            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                                <div className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur">
+                                    <p className="text-xl font-bold md:text-2xl">07</p>
+                                    <p className="text-xs text-slate-300 md:text-sm">Core leaders</p>
                                 </div>
-                                <div className="rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur">
-                                    <p className="text-2xl font-bold">03</p>
-                                    <p className="text-sm text-slate-300">Decision layers</p>
+                                <div className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur">
+                                    <p className="text-xl font-bold md:text-2xl">03</p>
+                                    <p className="text-xs text-slate-300 md:text-sm">Decision layers</p>
                                 </div>
-                                <div className="rounded-2xl border border-white/10 bg-white/10 px-5 py-4 backdrop-blur">
-                                    <p className="text-2xl font-bold">02</p>
-                                    <p className="text-sm text-slate-300">Specialized tracks</p>
+                                <div className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur">
+                                    <p className="text-xl font-bold md:text-2xl">02</p>
+                                    <p className="text-xs text-slate-300 md:text-sm">Specialized tracks</p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Content Section - Scrollable */}
-                        <div className="no-scrollbar flex-1 overflow-auto bg-gradient-to-b from-slate-50 to-white px-8 py-12 md:px-12 md:py-16">
-                            <div className="flex min-w-max justify-center pb-32">
-                                <div className="pt-8">
+                        {/* Content Section - Scrollable with proper spacing */}
+                        <div className="min-h-0 flex-1 overflow-auto bg-gradient-to-b from-slate-50 to-white px-6 py-8 md:px-10 md:py-10">
+                            <div className="flex min-w-max justify-center pb-20">
+                                <div className="pt-4">
                                     <MemberNode member={teamData} />
                                 </div>
                             </div>

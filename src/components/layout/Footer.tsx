@@ -19,10 +19,10 @@ export const Footer = () => {
                                 {/* Reusing the logo logic from Header manually or could import if it was a component, for now simple text/icon placeholder */}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-rocket text-white"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /></svg>
                             </div>
-                            <span className="font-bold text-xl text-slate-900 tracking-tight">Havenx</span>
+                            <span className="font-bold text-xl text-slate-900 tracking-tight">City Architects & Planning</span>
                         </div>
                         <p className="text-slate-500 max-w-sm mb-6">
-                            Designing sustainable and innovative spaces for tomorrow. Join our journey to redefine architecture.
+                            Multidisciplinary architecture, planning, interiors, engineering, and project-management consultancy based in New Delhi.
                         </p>
                         <div className="flex gap-4">
                             {/* Social placeholders */}
@@ -41,36 +41,36 @@ export const Footer = () => {
                     <div>
                         <h4 className="font-bold text-slate-900 mb-4">Expertise</h4>
                         <ul className="space-y-3 text-slate-600">
-                            <li><a href="#" className="hover:text-indigo-600 transition-colors">Residential</a></li>
-                            <li><a href="#" className="hover:text-indigo-600 transition-colors">Commercial</a></li>
-                            <li><a href="#" className="hover:text-indigo-600 transition-colors">Urban Planning</a></li>
-                            <li><a href="#" className="hover:text-indigo-600 transition-colors">Interior</a></li>
+                            <li><a href="#services" className="hover:text-indigo-600 transition-colors">Architecture</a></li>
+                            <li><a href="#services" className="hover:text-indigo-600 transition-colors">Town Planning</a></li>
+                            <li><a href="#services" className="hover:text-indigo-600 transition-colors">Interior Design</a></li>
+                            <li><a href="#services" className="hover:text-indigo-600 transition-colors">Project Management</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-bold text-slate-900 mb-4">Company</h4>
                         <ul className="space-y-3 text-slate-600">
-                            <li><a href="#" className="hover:text-indigo-600 transition-colors">About</a></li>
-                            <li><a href="#" className="hover:text-indigo-600 transition-colors">Careers</a></li>
-                            <li><a href="#" className="hover:text-indigo-600 transition-colors">Contact</a></li>
-                            <li><a href="#" className="hover:text-indigo-600 transition-colors">Blog</a></li>
+                            <li><a href="#about" className="hover:text-indigo-600 transition-colors">About</a></li>
+                            <li><a href="#process" className="hover:text-indigo-600 transition-colors">Process</a></li>
+                            <li><a href="#projects" className="hover:text-indigo-600 transition-colors">Projects</a></li>
+                            <li><a href="#contact" className="hover:text-indigo-600 transition-colors">Contact</a></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 className="font-bold text-slate-900 mb-4">Support</h4>
+                        <h4 className="font-bold text-slate-900 mb-4">Registered Office</h4>
                         <ul className="space-y-3 text-slate-600">
-                            <li><a href="#" className="hover:text-indigo-600 transition-colors">Help Center</a></li>
-                            <li><a href="#" onClick={(e) => openLegal(e, 'terms')} className="hover:text-indigo-600 transition-colors">Terms of Service</a></li>
-                            <li><a href="#" onClick={(e) => openLegal(e, 'privacy')} className="hover:text-indigo-600 transition-colors">Privacy Policy</a></li>
-                            <li><a href="#" className="hover:text-indigo-600 transition-colors">Status</a></li>
+                            <li>H. No. 25/A, Gagan Vihar</li>
+                            <li>Mithapur, Badarpur</li>
+                            <li>New Delhi - 110044</li>
+                            <li>+91-9818381406</li>
                         </ul>
                     </div>
                 </div>
 
                 <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                    <p>© 2024 Havenx Inc. All rights reserved.</p>
+                    <p>© 2026 City Architects & Planning. All rights reserved.</p>
                     <div className="flex gap-6">
                         <a href="#" onClick={(e) => openLegal(e, 'privacy')} className="hover:text-indigo-600 transition-colors">Privacy Policy</a>
                         <a href="#" onClick={(e) => openLegal(e, 'terms')} className="hover:text-indigo-600 transition-colors">Terms of Service</a>

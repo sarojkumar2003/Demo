@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '../ui/Button';
 import { TeamTree } from './TeamTree';
 import { FounderStory } from './FounderStory';
+import aboutImg from '../../assets/Images/9.png';
 
 export const About = () => {
     const [isTeamOpen, setIsTeamOpen] = useState(false);
@@ -13,7 +14,7 @@ export const About = () => {
                     <div className="relative order-2 lg:order-1">
                         <div className="relative h-[360px] sm:h-[420px] md:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200">
                             <img
-                                src="/hero-house-villa.png"
+                                src={aboutImg}
                                 alt="Architectural Studio"
                                 className="w-full h-full object-cover"
                             />
@@ -23,25 +24,25 @@ export const About = () => {
 
                         {/* Stats card highlight */}
                         <div className="absolute left-1/2 -translate-x-1/2 bottom-[-2.75rem] bg-white p-6 rounded-[2rem] shadow-xl max-w-xs border border-slate-100 lg:left-auto lg:translate-x-0 lg:bottom-[-1.5rem] lg:-right-6 lg:p-8">
-                            <p className="text-5xl font-bold text-indigo-600 mb-2">15+</p>
-                            <p className="text-slate-600 font-medium text-lg">Years of shaping skylines across the world.</p>
+                            <p className="text-5xl font-bold text-indigo-600 mb-2">2019</p>
+                            <p className="text-slate-600 font-medium text-lg">Founded with a vision to rethink structure and planning in India.</p>
                         </div>
                     </div>
 
                     <div className="max-w-xl mx-auto lg:mx-0 order-1 lg:order-2">
                         <span className="text-indigo-600 font-bold tracking-wider uppercase text-sm mb-4 block">Who We Are</span>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">
-                            Global Architectural Excellence
+                            City Architects & Planning
                         </h2>
                         <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                             <p>
-                                At Havenx, we believe architecture is more than just building—it's about sculpting the environment to elevate the human experience. From concept to construction, we design spaces that inspire.
+                                City Architects & Planning is a multidisciplinary design practice dedicated to sustainable, functional, and aesthetically inspiring built environments.
                             </p>
                             <p>
-                                Our portfolio spans residential, commercial, and public projects across the globe, redefining skylines and lifestyles with every structure we raise.
+                                Our work spans architecture, urban design, town planning, structural and civil engineering, MEP coordination, interiors, estimating, and project management.
                             </p>
                             <p>
-                                We combine artistic vision with structural precision, ensuring every project is a masterpiece of sustainability and innovation.
+                                Every project responds to its cultural, social, and environmental context while staying practical, collaborative, and future-ready.
                             </p>
                         </div>
 
