@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { LegalModal } from '../ui/LegalModal';
+import logo from '../../assets/Images/logo.png';
 
 export const Footer = () => {
     const [legalType, setLegalType] = useState<'terms' | 'privacy' | 'cookies' | null>(null);
@@ -14,13 +15,14 @@ export const Footer = () => {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
                     <div className="col-span-1 md:col-span-2 lg:col-span-2">
-                        <div className="flex items-center gap-2 mb-4">
-                            <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-600/20">
-                                {/* Reusing the logo logic from Header manually or could import if it was a component, for now simple text/icon placeholder */}
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-rocket text-white"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /></svg>
-                            </div>
+                        <a href="#" className="flex items-center gap-3 mb-4" aria-label="City Architects & Planning home">
+                            <img
+                                src={logo}
+                                alt="City Architects & Planning logo"
+                                className="w-14 h-14 rounded-xl object-contain shadow-lg shadow-slate-900/10"
+                            />
                             <span className="font-bold text-xl text-slate-900 tracking-tight">City Architects & Planning</span>
-                        </div>
+                        </a>
                         <p className="text-slate-500 max-w-sm mb-6">
                             Multidisciplinary architecture, planning, interiors, engineering, and project-management consultancy based in New Delhi.
                         </p>

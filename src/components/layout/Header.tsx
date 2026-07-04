@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Building2, Menu, Search, X } from 'lucide-react';
+import { Menu, Search, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { cn } from '../../utils/utils';
+import logo from '../../assets/Images/logo.png';
 
 const navLinks = [
     { name: 'About', href: '#about' },
@@ -34,12 +35,14 @@ export const Header = () => {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <div className="flex items-center gap-2 relative z-50">
-                        <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-600/20">
-                            <Building2 size={20} className="text-white" />
-                        </div>
+                    <a href="#" className="flex items-center gap-2 relative z-50" aria-label="City Architects & Planning home">
+                        <img
+                            src={logo}
+                            alt="City Architects & Planning logo"
+                            className="w-12 h-12 rounded-xl object-contain shadow-lg shadow-slate-900/10"
+                        />
                         <span className="font-bold text-xl text-slate-900 tracking-tight">CAP</span>
-                    </div>
+                    </a>
 
                     {/* Desktop Search Overlay */}
                     <AnimatePresence>

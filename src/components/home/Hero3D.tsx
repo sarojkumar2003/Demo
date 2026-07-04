@@ -342,7 +342,7 @@ export const Hero3D = () => {
 
     // --- 2. Camera setup ---
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.set(32, 16, 18);
+    camera.position.set(25.5, 13.5, 14.2);
     cameraRef.current = camera;
 
     // --- 3. Renderer setup ---
@@ -372,12 +372,15 @@ export const Hero3D = () => {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
+    controls.enablePan = false;
     controls.maxPolarAngle = Math.PI / 2 - 0.05;
-    controls.minDistance = 15;
-    controls.maxDistance = 52;
+    controls.minPolarAngle = Math.PI / 5;
+    controls.minAzimuthAngle = -Math.PI * 0.38;
+    controls.maxAzimuthAngle = Math.PI * 0.38;
+    controls.minDistance = 30;
+    controls.maxDistance = 45;
     controls.target.set(0, 3.2, -0.8); // Adjusted lower target to center the model and avoid bottom clipping
-    controls.autoRotate = true; // Auto-rotate enabled by default
-    controls.autoRotateSpeed = 0.8; // Smooth, slow rotation
+    controls.autoRotate = false; // Manual bounded rotation keeps the villa inside its frame.
     controlsRef.current = controls;
 
     (window as Window & { debugCamera?: THREE.PerspectiveCamera }).debugCamera = camera;
@@ -766,6 +769,11 @@ export const Hero3D = () => {
     let time = 0;
     const animate = () => {
       time += 0.01;
+
+      // Very slow continuous presentation rotation (roughly one turn every four minutes).
+      if (!reliefMeshRef.current) {
+        villaGroup.rotation.y += 0.00045;
+      }
       
       // Water movement
       if (water) {
@@ -782,12 +790,12 @@ export const Hero3D = () => {
         fireLightRef.current.intensity = 2.8 + Math.sin(time * 8) * 0.2 + Math.random() * 0.05;
       }
 
-      // Rotate relief artwork if active; keep the villa on a stable auto-rotation otherwise.
+      // Rotate relief artwork if active; the villa itself uses bounded manual rotation.
       if (reliefMeshRef.current) {
         reliefMeshRef.current.rotation.y = time * 0.5;
         controls.autoRotate = false;
       } else if (controls) {
-        controls.autoRotate = true;
+        controls.autoRotate = false;
       }
       
       controls.update();
@@ -863,7 +871,7 @@ export const Hero3D = () => {
 
   return (
     <div 
-      className="relative w-full h-[220px] max-w-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 select-none group rounded-3xl sm:h-[280px] md:h-[360px] lg:h-[650px] lg:aspect-auto"
+      className="relative h-[210px] w-full max-w-none overflow-hidden flex flex-col justify-between transition-all duration-300 select-none group rounded-3xl sm:h-[260px] md:h-[330px] lg:h-[480px] lg:aspect-auto"
     >
       {/* 3D Canvas Container */}
       <div 

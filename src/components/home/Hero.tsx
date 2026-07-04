@@ -62,7 +62,7 @@ export const Hero = () => {
                         initial={{ opacity: 0, scale: 0.5, y: 20 }}
                         animate={{ opacity: 1, scale: 0.9, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative flex h-[220px] items-end justify-center overflow-hidden lg:h-auto lg:items-center lg:justify-center lg:-ml-[20vh] lg:mt-[8vh] lg:overflow-visible"
+                        className="relative flex h-[210px] w-full items-end justify-center overflow-hidden sm:h-[260px] md:h-[330px] lg:-ml-[24%] lg:mt-0 lg:h-[480px] lg:w-[132%] lg:items-center lg:justify-center"
                     >
                         <Hero3D />
                     </motion.div>
